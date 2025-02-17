@@ -1,0 +1,268 @@
+body {
+  background-color:rgba(163, 115, 161, 0.541);
+  width: 100%;
+  height: 600px;
+}
+
+
+.letter {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.letter:nth-child(1) {
+  transform: translateY(60px); /* Move H down */
+}
+
+.letter:nth-child(2) {
+  transform: translateY(50px); /* Move 1 down */
+}
+
+.letter:nth-child(3) {
+  transform: translateY(40px); /* Move , down */
+}
+
+.letter:nth-child(4) {
+  transform: translateY(0px); /* Keep space in normal position */
+}
+
+.letter:nth-child(5) {
+  transform: translateY(-40px); /* Move G up */
+}
+
+.letter:nth-child(6) {
+  transform: translateY(-50px); /* Move I up */
+}
+
+.letter:nth-child(7) {
+  transform: translateY(-60px); /* Move R up */
+}
+
+.letter:nth-child(8) {
+  transform: translateY(-60px); /* Move L up */
+}
+
+.letter:nth-child(9) {
+  transform: translateY(-50px); /* Move I up */
+}
+
+.letter:nth-child(10) {
+  transform: translateY(-40px); /* Move E up */
+}
+
+.letter:nth-child(11) {
+  transform: translateY(-30px); /* Move S up */
+}
+
+.letter:nth-child(12) {
+  transform: translateY(-40px); /* Move ! up */
+}
+
+/* Optional hover effect to make it more interactive */
+.inverted-u-shape-heading:hover .letter {
+  transform: scale(1.2);
+  color: #ff6600; /* Change color on hover */
+}
+
+#myContainer {
+  width: 100%;
+  height: 100%;
+}
+img {
+  align-self: center;
+  width: 275px;
+  height: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  font-size: 115px;
+  font-family: 'Londrina Shadow', cursive;
+  text-align: center;
+  margin: 5% auto;
+}
+h1:hover {
+  color: purple; /* Make the text transparent */
+  background-image: linear-gradient(to bottom, #ff00e670, #ff336646, #590a4ebb); /* Gradient fill */
+  background-clip: text; /* Clip the background to the text */
+  -webkit-background-clip: text; /* For Safari */
+}
+button {
+  margin: 20px 10px;
+  padding: 20px;
+  border-radius: 30px;
+  background-color: rgb(244, 202, 117);
+  font-family: 'Londrina Shadow', cursive;
+  font-size: 30px;
+}
+button:hover {
+  background-color: rgba(56, 58, 178, 0.37);
+  color: white;
+}
+button:active {
+  background-color: dimgrey;
+  color: white;
+}
+.button {
+  text-align: center;  
+  width: auto;  
+  height: auto;  
+  padding-top: 10px;  
+} 
+
+.hungerbar {
+  background: none repeat scroll 0 0 #555555;
+  border-radius: 25px 25px 25px 25px;
+  box-shadow: 0 -1px 1px rgba(255, 255, 255, 0.3) inset;
+  height: 40px;
+  width: 300px;
+  margin: 30px auto;
+  overflow: hidden; 
+  position: relative;
+  display: none;
+}
+
+.hungerbar > span {
+  background-color: #2BC253;
+  background-image: -moz-linear-gradient(center bottom , #2BC253 37%, #54F054 69%);
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: 0 2px 9px rgba(255, 255, 255, 0.3) inset, 0 -2px 6px rgba(0, 0, 0, 0.4) inset;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.sleepinessbar {
+  background: none repeat scroll 0 0 #555555;
+  border-radius: 25px 25px 25px 25px;
+  box-shadow: 0 -1px 1px rgba(255, 255, 255, 0.3) inset;
+  height: 40px;
+  width: 300px;
+  margin: 30px auto;
+  overflow: hidden; 
+  position: relative;
+  display: none;
+}
+.sleepinessbar > span {
+  background-color: #2BC253;
+  background-image: -moz-linear-gradient(center bottom , #2BC253 37%, #54F054 69%);
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: 0 2px 9px rgba(255, 255, 255, 0.3) inset, 0 -2px 6px rgba(0, 0, 0, 0.4) inset;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.boredombar {
+  background: none repeat scroll 0 0 #555555;
+  border-radius: 25px 25px 25px 25px;
+  box-shadow: 0 -1px 1px rgba(255, 255, 255, 0.3) inset;
+  height: 40px;
+  width: 300px;
+  margin: 30px auto;
+  overflow: hidden; 
+  position: relative;
+  display: none;
+  
+}
+.boredombar > span {
+  background-color: #2BC253;
+  background-image: -moz-linear-gradient(center bottom , #2BC253 37%, #54F054 69%);
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: 0 2px 9px rgba(255, 255, 255, 0.3) inset, 0 -2px 6px rgba(0, 0, 0, 0.4) inset;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.hungerbarname {
+  text-align: center;
+  font-family: 'Londrina Shadow', cursive;
+  font-size: 20px;
+  margin: auto;
+  color:black;
+  display: none;
+}
+.sleepinessbarname {
+  text-align: center;
+  font-family: 'Londrina Shadow', cursive;
+  font-size: 20px;
+  margin: auto;
+  color:black;
+  display: none;
+}
+.boredombarname {
+  text-align: center;
+  font-family: 'Londrina Shadow', cursive;
+  font-size: 20px;
+  margin: auto;
+  color:black;
+  display: none;
+}
+
+.icon{
+  width: 50px;
+  height: 50px;
+  text-align: center;
+}
+
+.play {
+  margin: 50px auto;
+  display: none;
+}
+.eat {
+  margin: 50px auto;
+  display: none; 
+}
+.sleep {
+  margin: 50px auto;
+  display: none;
+}
+.s {
+  margin: 50px auto;
+  display: none;
+}
+.ageclass {
+  text-align: center;
+  font-family: 'Londrina Shadow', cursive;
+  font-size: 20px;
+  margin: 0 0 40px 0;
+  color:black;
+  display: none;
+}
+
+.nameclass {
+  font-size: 50px;
+  font-family: 'Londrina Shadow', cursive;
+  text-align: center;
+  margin: 5% auto;
+}
+
+.babyDieDiv {
+  text-align: center;
+  margin: auto;
+}
+
+.gameIsOver {
+  margin: auto;
+}
+
+.babyDie {
+  text-align: center;
+  font-family: 'Londrina Shadow', cursive;
+  font-size: 50px;
+  margin: auto;
+  color:black;
+  display: none;
+}
+
+.bye {
+  margin: auto;
+  display: none;
+}

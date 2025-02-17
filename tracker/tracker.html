@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Period Tracker</title>
+    <link rel="stylesheet" href="tracker.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+
+    <style>
+        /* Loader Styles */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: pink;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 8px solid white;
+            border-top: 8px solid red;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loader-text {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: red;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Privacy Page Styles */
+        .privacy-container {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .privacy-container h2 {
+            color: #333;
+        }
+
+        .privacy-container p {
+            max-width: 80%;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .privacy-buttons {
+            margin-top: 20px;
+        }
+
+        .privacy-buttons button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .accept-btn {
+            background-color: green;
+            color: white;
+        }
+
+        .decline-btn {
+            background-color: red;
+            color: white;
+        }
+
+        /* Main Content (Period Tracker) */
+        .container {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loader -->
+    <div class="loader-container" id="loader">
+        <div id="lottie-animation"></div>
+        <p class="loader-text">Welcome to my Period Tracker</p>
+    </div>
+    <style>
+        .loader-text {
+            position: absolute;
+            bottom: 20%;
+            font-size: 50px;
+            font-weight: bold;
+            color: rgb(46, 17, 17);
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+    
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+    <!-- Privacy Page -->
+    <div class="privacy-container" id="privacyPage">
+        <h2>Privacy First</h2>
+        <p>We care about your privacy. By using this tracker, you agree that we can use your personal data to provide our services. You can withdraw consent at any time, but after that, you won't be able to use the tracker.</p>
+        <div class="privacy-buttons">
+            <button class="accept-btn" onclick="acceptPrivacy()">I Agree</button>
+            <button class="decline-btn" onclick="declinePrivacy()">I Decline</button>
+        </div>
+    </div>
+    <video id="welcomeVideo" width="100%" controls style="display: none;">
+        <source src="/assets/tracker_vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    
+    <!-- Main Content (Period Tracker) -->
+<div class="container" id="mainContent">
+    <h1>Period Tracker</h1>
+    <form id="trackerForm">
+        
+
+        
+    </form>
+
+   
+    
+    
+    
+    
+
+
+
+
+
+
+    <script>
+        // Loader - Show for 3 seconds
+        setTimeout(function() {
+            document.getElementById("loader").style.opacity = "0"; // Fade out
+            setTimeout(() => {
+                document.getElementById("loader").style.display = "none"; // Hide Loader
+                checkPrivacyConsent(); // Check if user agreed to privacy
+            }, 500);
+        }, 6000);
+
+        // Function to check Privacy Consent
+        function checkPrivacyConsent() {
+            let consent = localStorage.getItem("privacyConsent");
+            if (consent === "accepted") {
+                document.getElementById("mainContent").style.display = "block";
+            } else {
+                document.getElementById("privacyPage").style.display = "flex";
+            }
+        }
+
+        // User accepts privacy policy
+        function acceptPrivacy() {
+            localStorage.setItem("privacyConsent", "accepted");
+            document.getElementById("privacyPage").style.display = "none";
+            document.getElementById("mainContent").style.display = "block";
+        }
+
+        // User declines privacy policy
+        function declinePrivacy() {
+            alert("You must accept the privacy policy to use the Period Tracker.");
+        }
+    </script>
+
+</body>
+<script src="tracker.js"></script>
+
+</html>

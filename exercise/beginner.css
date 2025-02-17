@@ -1,0 +1,79 @@
+/* General Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@700&display=swap');
+* {
+    font-family: "Poppins";
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Full height viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9; /* Background color for better visibility */
+  }
+  
+  header {
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  
+  h1 {
+    margin: 0;
+  }
+  
+  /* Carousel Styles */
+  .carousel {
+    position: relative;
+    max-width: 80%; /* Set width of carousel */
+    max-height: 80%; /* Restrict maximum height */
+    margin: 0 auto;
+    overflow: hidden; /* Hide overflow to show one item at a time */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 300%; /* Adjust width based on the number of items */
+  }
+  
+  .carousel-item {
+    flex: 0 0 100%; /* Each item takes 100% of the viewport width */
+    text-align: center;
+  }
+  
+  iframe {
+    width: 80%;
+    height: 300px;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Navigation Dots */
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .dot.active {
+    background-color: #333;
+  }
+  

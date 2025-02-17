@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <link rel="stylesheet" href="../chatbot/styles.css">
+    <!-- Add Firebase SDK -->
+    <script type="module">
+      // Import Firebase modules
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+      import {
+        getAuth,
+        signOut,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDfgEk8XRWIaBmPcPhEJuCtxi147q3FpOI",
+        authDomain: "pcod-project-d67a7.firebaseapp.com",
+        projectId: "pcod-project-d67a7",
+        storageBucket: "pcod-project-d67a7.firebasestorage.app",
+        messagingSenderId: "872049001653",
+        appId: "1:872049001653:web:778ce9bed1c2ee169f2afc",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Logout functionality
+      const logoutBtn = document.getElementById("logout-btn");
+      logoutBtn.addEventListener("click", () => {
+        signOut(auth)
+          .then(() => {
+            // Sign-out successful
+            alert("Logged out successfully!");
+            window.location.href = "index.html"; // Redirect to login page
+          })
+          .catch((error) => {
+            alert(error.message); // Handle errors
+          });
+      });
+
+      // Check if user is logged in
+      onAuthStateChanged(auth, (user) => {
+        if (!user) {
+          // User is not logged in, redirect to login page
+          window.location.href = "index.html";
+        }
+      });
+    </script>
+    <!-- Chatbot Styles -->
+    <style>
+      /* Chatbot Iframe Container */
+      #chatbot-iframe-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 300px;
+        height: 400px;
+        border: none;
+        display: none; /* Hidden by default */
+        z-index: 1000;
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow for popup effect */
+      }
+
+      /* Chatbot Toggle Button */
+      #chatbot-toggle-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        z-index: 1001;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow for button */
+      }
+
+      /* Hide the iframe when not active */
+      #chatbot-iframe-container.hidden {
+        display: none;
+      }
+
+      /* Show the iframe when active */
+      #chatbot-iframe-container.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to the Homepage!</h1>
+    <button id="logout-btn">Logout</button>
+
+    <!-- Chatbot Iframe -->
+    <section class="chat-window">
+      <button class="close">X close</button>
+      <div class="chat">
+          <div class="model">
+              <p>Hi, how can I help you?</p>
+          </div>
+      </div>
+      <div class="input-area">
+          <input placeholder="Ask me anything..." type="text">
+          <button>
+              <img src="../chatbot/send-icon.png" alt="send icon">
+          </button>
+  </section>
+
+  <div class="chat-button">
+      <img src="../chatbot/chat-icon.png" alt="start chat">
+  </div>
+  
+  <script type="importmap">
+      {
+          "imports": {
+              "@google/generative-ai": "https://esm.run/@google/generative-ai"
+          }
+      }
+  </script>
+  <script type="module" src="../chatbot/main.js"></script>
+  </body>
+</html>

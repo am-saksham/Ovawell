@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap & jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <title>Profile - PCOD Tracker</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img id="profile-image" src="default-profile.jpg" alt="Profile Image"/>
+                    <div class="file btn btn-lg btn-primary">
+                        Change Photo
+                        <input type="file" id="file-input" name="file" accept="image/*"/>
+                    </div>
+                </div>
+                
+                <script>
+                document.getElementById("file-input").addEventListener("change", function(event) {
+                    const file = event.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            document.getElementById("profile-image").src = e.target.result; // Update the image source
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+                </script>
+                
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <h5 id="profile-name">Jane Doe</h5>
+                    <h6>PCOD & Menstrual Health Tracker</h6>
+                    <p class="proile-rating">Cycle Regularity: <span id="cycle-regularity">Irregular</span></p>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab">Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab">History</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <input type="button" class="profile-edit-btn" value="Edit Profile" id="edit-profile-btn"/>
+                <button type="button" class="profile-edit-btn"  id="save-profile-btn" style="margin-top: 10px;">Save</button>
+
+                <button type="button" class="profile-edit-btn" id="logout-btn" style="margin-top: 10px;">Logout</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-work">
+                    <p>RESOURCES</p>
+                    <a href="#">PCOD Awareness</a><br/>
+                    <a href="#">Diet & Nutrition</a><br/>
+                    <a href="#">Exercise Routines</a><br/>
+                    <p>HEALTH TIPS</p>
+                    <a href="#">Hormonal Balance</a><br/>
+                    <a href="#">Mental Well-being</a><br/>
+                    <a href="#">Doctor Consultation</a>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel">
+                       
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="name">Jane Doe</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="email">janedoe@example.com</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Menstrual Cycle Length</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="menstrual-cycle-length">35 Days</p>
+                                <input type="number" id="menstrual-cycle-input" style="display:none;" value="35">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Symptoms Tracked</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="symptoms-tracked">Acne, Fatigue, Cramps</p>
+                                <input type="text" id="symptoms-input" style="display:none;" value="Acne, Fatigue, Cramps">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Last Period Date</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="last-period-date">January 10, 2025</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Next Expected Period</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="next-expected-period">February 14, 2025</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Consultation Status</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="consultation-status">Upcoming Appointment</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Daily Water Intake</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="daily-water-intake">2.5 Liters</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Physical Activity</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="physical-activity">Yoga, Walking</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Health Notes</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text-wrap" id="health-notes">Tracking PCOD symptoms, improving diet and fitness.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>           
+</div>
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+    import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
+
+    // Firebase configuration (Replace with your actual Firebase config)
+    const firebaseConfig = {
+  apiKey: "AIzaSyB3CJSzUaUNwoxm9Ho8LjdH2BBjrp2D8jY",
+  authDomain: "pcod-hackathon.firebaseapp.com",
+  projectId: "pcod-hackathon",
+  storageBucket: "pcod-hackathon.firebasestorage.app",
+  messagingSenderId: "366998464817",
+  appId: "1:366998464817:web:e131678b08cf138892a810"
+};
+    
+    document.addEventListener("DOMContentLoaded", () => {
+    const auth = getAuth();
+
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            const email = user.email; // Get the logged-in user's email
+            fetch(`/get-profile/${email}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.profile) {
+                        // Populate profile details dynamically
+                        $('#profile-name').text(data.profile.name);
+                        $('#cycle-regularity').text(data.profile.cycleRegularity);
+                        $('#user-id').text(data.profile.userId);
+                        $('#name').text(data.profile.name);
+                        $('#email').text(data.profile.email);
+                        $('#menstrual-cycle-length').text(data.profile.menstrualCycleLength);
+                        $('#symptoms-tracked').text(data.profile.symptomsTracked.join(', '));
+                        $('#last-period-date').text(new Date(data.profile.lastPeriodDate).toLocaleDateString());
+                        $('#next-expected-period').text(new Date(data.profile.nextExpectedPeriod).toLocaleDateString());
+                        $('#consultation-status').text(data.profile.consultationStatus);
+                        $('#daily-water-intake').text(data.profile.dailyWaterIntake);
+                        $('#physical-activity').text(data.profile.physicalActivity.join(', '));
+                        $('#health-notes').text(data.profile.healthNotes);
+                    } else {
+                        console.error("Profile not found");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error fetching profile:", error);
+                });
+        } else {
+            console.log("No user is logged in.");
+            window.location.href = "../index.html"; // Redirect to login if not authenticated
+        }
+    });
+
+        // Enable tab functionality
+        $('#myTab a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+    });
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    document.addEventListener("DOMContentLoaded", () => {
+        // Logout function
+        document.getElementById("logout-btn").addEventListener("click", () => {
+            signOut(auth)
+                .then(() => {
+                    alert("Logged out successfully!");
+                    window.location.href = "../index.html"; // Redirect to login page
+                })
+                .catch((error) => {
+                    alert("Error logging out: " + error.message);
+                });
+        });
+    });
+</script>
+<script type="module">
+    document.getElementById("edit-profile-btn").addEventListener("click", () => {
+        // Toggle visibility of inputs and text for editing
+        document.getElementById("menstrual-cycle-length").style.display = "none";
+        document.getElementById("menstrual-cycle-input").style.display = "inline";
+        
+        document.getElementById("symptoms-tracked").style.display = "none";
+        document.getElementById("symptoms-input").style.display = "inline";
+    });
+
+    // Logout functionality
+    document.getElementById("logout-btn").addEventListener("click", () => {
+        alert("Logged out successfully!");
+        window.location.href = "../index.html"; // Redirect to login page
+    });
+</script>
+<script type="module">
+    document.getElementById("save-profile-btn").addEventListener("click", () => {
+        // Get the updated values from the input fields
+        const updatedCycleLength = document.getElementById("menstrual-cycle-input").value;
+        const updatedSymptoms = document.getElementById("symptoms-input").value;
+
+        // Perform the save operation, like sending data to Firebase or your server
+        const user = getAuth().currentUser;
+
+        if (user) {
+            const email = user.email;
+            // Assuming you have a Firebase function to update the profile (or send data to server)
+            fetch(`/update-profile/${email}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    menstrualCycleLength: updatedCycleLength,
+                    symptomsTracked: updatedSymptoms.split(","),
+                }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.success) {
+                        // Update the profile view with the new values
+                        $('#menstrual-cycle-length').text(updatedCycleLength);
+                        $('#symptoms-tracked').text(updatedSymptoms);
+
+                        // Hide input fields and show updated data
+                        document.getElementById("menstrual-cycle-input").style.display = "none";
+                        document.getElementById("menstrual-cycle-length").style.display = "inline";
+                        document.getElementById("symptoms-input").style.display = "none";
+                        document.getElementById("symptoms-tracked").style.display = "inline";
+
+                        alert("Profile updated successfully!");
+                    } else {
+                        alert("Failed to update profile.");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error updating profile:", error);
+                    alert("An error occurred. Please try again later.");
+                });
+        } else {
+            alert("No user is logged in.");
+        }
+    });
+</script>
+
+</body>
+</html>

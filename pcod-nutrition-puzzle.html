@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOD Food Group Puzzle with Portion Control</title>
+    <link rel="stylesheet" href="puzzle.css">
+    <style>
+        /* Add some basic styling for the recipe cards */
+        .recipe-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .recipe-card {
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            padding: 16px;
+            text-align: center;
+        }
+        .recipe-card h3 {
+            color: #333;
+        }
+        .recipe-card p {
+            font-size: 14px;
+            color: #555;
+        }
+        .recipe-card .ingredients,
+        .recipe-card .instructions {
+            margin-top: 10px;
+            text-align: left;
+        }
+        .recipe-card .recipe-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>PCOD Food Group Puzzle</h1>
+    <p>Drag and drop food items into the correct food group. Watch out for portion sizes!</p>
+
+    <!-- User Progress Section -->
+    <div class="progress-section">
+        <h2>Your Progress</h2>
+        <div id="points">Points: 0</div>
+        <div id="badges">Badges: None</div>
+        <div>
+            <h3>Progress Tracker</h3>
+            <div id="progress-bar">
+                <div id="progress" style="width: 0%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Plate -->
+    <div class="plate">
+        <div class="section protein" id="protein-drop">
+            <h2>Protein (25%)</h2>
+        </div>
+        <div class="section carbs" id="carbs-drop">
+            <h2>Carbs (25%)</h2>
+        </div>
+        <div class="section veggies" id="veggies-drop">
+            <h2>Vegetables (50%)</h2>
+        </div>
+    </div>
+
+    <!-- The Food Items with portion sizes -->
+    <div class="food-items">
+        <div class="food-item" draggable="true" id="chicken" data-type="protein" data-portion="25">Chicken (25%)</div>
+        <div class="food-item" draggable="true" id="eggs" data-type="protein" data-portion="25">Eggs (25%)</div>
+        <div class="food-item" draggable="true" id="tofu" data-type="protein" data-portion="25">Tofu (25%)</div>
+
+        <div class="food-item" draggable="true" id="rice" data-type="carbs" data-portion="25">Brown Rice (25%)</div>
+        <div class="food-item" draggable="true" id="quinoa" data-type="carbs" data-portion="25">Quinoa (25%)</div>
+        <div class="food-item" draggable="true" id="sweet-potatoes" data-type="carbs" data-portion="25">Sweet Potatoes (25%)</div>
+
+        <div class="food-item" draggable="true" id="spinach" data-type="veggies" data-portion="50">Spinach (50%)</div>
+        <div class="food-item" draggable="true" id="broccoli" data-type="veggies" data-portion="50">Broccoli (50%)</div>
+        <div class="food-item" draggable="true" id="carrots" data-type="veggies" data-portion="50">Carrots (50%)</div>
+    </div>
+
+    <!-- Section for Expert Tips and Meal Suggestions -->
+    <div id="tips-container">
+        <h2>Expert Tips</h2>
+        <div id="expert-tips">Add your food selections to get personalized tips!</div>
+        <h3>Suggested Recipes</h3>
+        <div id="suggested-recipes">Select foods to see meal ideas!</div>
+    </div>
+
+    <!-- Recipe Cards Section -->
+    <div class="recipe-card-container">
+        <!-- Recipe 1: Chia Seed Pudding with Berries -->
+        <div class="recipeS-card">
+            <div class="recipeS-title">Chia Seed Pudding with Berries</div>
+            <div class="ingredients">
+                <p><strong>Ingredients:</strong></p>
+                <ul>
+                    <li>2 tbsp chia seeds</li>
+                    <li>1 cup unsweetened almond milk</li>
+                    <li>1 tsp honey (optional)</li>
+                    <li>1/4 tsp vanilla extract</li>
+                    <li>1/4 cup mixed berries</li>
+                </ul>
+            </div>
+            <div class="instructions">
+                <p><strong>Instructions:</strong></p>
+                <p>Combine all ingredients in a bowl, stir, and refrigerate for 4 hours or overnight. Top with berries before serving.</p>
+            </div>
+            <div class="why-good">
+                <p><strong>Why it's good for PCOD:</strong> Chia seeds are high in fiber and omega-3s, which help balance hormones and reduce inflammation.</p>
+            </div>
+        </div>
+
+        <!-- Recipe 2: Quinoa Salad with Avocado & Chickpeas -->
+        <div class="recipeS-card">
+            <div class="recipeS-title">Quinoa Salad with Avocado & Chickpeas</div>
+            <div class="ingredients">
+                <p><strong>Ingredients:</strong></p>
+                <ul>
+                    <li>1 cup cooked quinoa</li>
+                    <li>1/2 cup cooked chickpeas</li>
+                    <li>1 avocado, diced</li>
+                    <li>1/4 cup cherry tomatoes</li>
+                    <li>1/4 cucumber, diced</li>
+                    <li>1 tbsp olive oil</li>
+                    <li>1 tbsp lemon juice</li>
+                    <li>Salt and pepper to taste</li>
+                    <li>Fresh parsley, chopped</li>
+                </ul>
+            </div>
+            <div class="instructions">
+                <p><strong>Instructions:</strong></p>
+                <p>Combine quinoa, chickpeas, avocado, tomatoes, and cucumber. Drizzle olive oil and lemon juice, toss to combine, and garnish with parsley.</p>
+            </div>
+            <div class="why-good">
+                <p><strong>Why it's good for PCOD:</strong> Quinoa helps with blood sugar control, and chickpeas provide fiber and protein for insulin balance.</p>
+            </div>
+        </div>
+
+        <!-- Recipe 3: Methi (Fenugreek) Paratha -->
+        <div class="recipeS-card">
+            <div class="recipeS-title">Methi (Fenugreek) Paratha</div>
+            <div class="ingredients">
+                <p><strong>Ingredients:</strong></p>
+                <ul>
+                    <li>1 cup whole wheat flour</li>
+                    <li>1/2 cup fresh fenugreek leaves</li>
+                    <li>1/2 tsp cumin seeds</li>
+                    <li>1/2 tsp turmeric powder</li>
+                    <li>1/2 tsp garam masala (optional)</li>
+                    <li>Salt to taste</li>
+                    <li>Water for kneading</li>
+                    <li>Ghee or olive oil for cooking</li>
+                </ul>
+            </div>
+            <div class="instructions">
+                <p><strong>Instructions:</strong></p>
+                <p>Mix the flour, spices, and fenugreek leaves. Add water to form a dough, rest for 10 minutes, then roll into parathas and cook on a pan.</p>
+            </div>
+            <div class="why-good">
+                <p><strong>Why it's good for PCOD:</strong> Fenugreek helps manage insulin resistance, and whole wheat stabilizes blood sugar.</p>
+            </div>
+        </div>
+
+        <!-- Add other recipe cards similarly -->
+    </div>
+
+    <!-- Link to external JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script src="puzzle.js"></script>
+</body>
+</html>

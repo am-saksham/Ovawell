@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Period Tracker</title>
+    <link rel="stylesheet" href="period.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js Library -->
+</head>
+<body>
+    <header>
+        <h1>Period Tracker</h1>
+    </header>
+    
+    <section id="input-section">
+        <h2>Track Your Period</h2>
+        <form id="tracker-form">
+            <label for="start-date">Last Period Start Date:</label>
+            <input type="date" id="start-date" required />
+        
+            <label for="cycle-length">Average Cycle Length (days):</label>
+            <input type="number" id="cycle-length" min="1" max="100" required />
+        
+            <label for="period-length">Period Length (days):</label>
+            <input type="number" id="period-length" min="2" max="7" required />
+        
+            <button type="submit" id="track-button">Track</button>
+        </form>
+        
+        <div id="output">
+            <p id="next-period-date"></p>
+            <p id="ovulation-date"></p>
+        </div>
+        <div id="pcod-symptoms"></div>
+    </section>
+    
+    <section id="pcod-section">
+        <h2>PCOD Insights</h2>
+        <div id="pcod-symptoms">Your PCOD-related insights will appear here after analysis.</div>
+        
+        <!-- Line Graph Canvas -->
+        <canvas id="pcodChart" width="400" height="200"></canvas>
+    </section>
+    
+    <section id="results-section">
+        <h2>Your Period Information</h2>
+        <p id="next-period-date">Your next period date will appear here.</p>
+        <p id="ovulation-date">Your ovulation day will appear here.</p>
+    </section>
+    
+    <section id="calendar-section">
+        <h2>Calendar</h2>
+        <div id="calendar" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px;"></div>
+    
+        <ul>
+            <li style="color: red;">🔴 Next Expected Period Start day</li>
+            <li style="color: rgb(237, 199, 9);">🟡 Ovulation Day</li>
+        </ul>
+    </section>
+
+    <script src="period.js"></script>
+    <script>
+        document.getElementById("tracker-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            let periodLength = parseInt(document.getElementById("period-length").value);
+            
+            let ctx = document.getElementById("pcodChart").getContext("2d");
+
+            let backgroundColor = periodLength < 5 ? "rgba(255, 99, 132, 0.5)" : "rgba(54, 162, 235, 0.5)";
+
+            let borderColor = periodLength < 5 ? "rgb(255, 99, 132)" : "rgb(54, 162, 235)";
+
+            let chart = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: ["Previous Cycle", "Current Cycle"], 
+                    datasets: [{
+                        label: "Period Length (Days)",
+                        data: [5, periodLength], 
+                        backgroundColor: backgroundColor,
+                        borderColor: borderColor,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            suggestedMax: 10
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

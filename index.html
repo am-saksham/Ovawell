@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ovawell</title>
   <link rel="stylesheet" href="login-chatbot/chatbot/styles.css">
   <link rel="stylesheet" href="styles/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-    rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/@google/generative-ai"></script>
   <script type="module">
-    // Import Firebase modules
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
     import {
       getAuth,
@@ -44,20 +45,18 @@
           window.location.href = "index.html"; // Redirect to login page
         })
         .catch((error) => {
-          alert(error.message); // Handle errors
+          alert(error.message);
         });
     });
 
     // Check if user is logged in
     onAuthStateChanged(auth, (user) => {
       if (!user) {
-        // User is not logged in, redirect to login page
         window.location.href = "index.html";
       }
     });
   </script>
   <style>
-    /* Chatbot Iframe Container */
     #chatbot-iframe-container {
       position: fixed;
       bottom: 20px;
@@ -65,13 +64,13 @@
       width: 300px;
       height: 400px;
       border: none;
-      display: none; /* Hidden by default */
+      display: none;
       z-index: 1000;
-      border-radius: 10px; /* Rounded corners */
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow for popup effect */
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    /* Chatbot Toggle Button */
+
     #chatbot-toggle-btn {
       position: fixed;
       bottom: 20px;
@@ -88,111 +87,116 @@
       justify-content: center;
       font-size: 24px;
       z-index: 1001;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow for button */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    /* Hide the iframe when not active */
+
     #chatbot-iframe-container.hidden {
       display: none;
     }
 
-    /* Show the iframe when active */
+
     #chatbot-iframe-container.active {
       display: block;
     }
   </style>
 </head>
+
 <body>
-  <!-- Loader -->
+
   <div class="loader-container" onclick="openMainPage()">
     <div class="loader"></div>
     <p>OVAWELL</p>
-</div>
-<div id="main-content" style="display: none;">
-  <div id="navbar-container"></div>
+  </div>
+  <div id="main-content" style="display: none;">
+    <div id="navbar-container"></div>
 
-  <script>
-    fetch("navbar/navbar.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("navbar-container").innerHTML = data;
-      });
-  </script>
+    <script>
+      fetch("navbar/navbar.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("navbar-container").innerHTML = data;
+        });
+    </script>
 
-  <script src="navbar/navbar.js"></script>
+    <script src="navbar/navbar.js"></script>
 
 
 
-  
-  
-  
-  <video autoplay loop muted src="assets/pcod_video.mp4"></video>
-  <div id="main">
-    <div id="page1" style="font-family: 'Playfair Display', serif;">
-      <h1>LEARN.ABOUT.PCOD</h1>
-      <h2>Hey there, beautiful!</h2>
-      <p>Polycystic Ovarian Disease (PCOD) affects millions of women worldwide. Get the right information, track your symptoms, and take control of your health today!</p>
-      
-    </div>
-    <div id="page2">
-      <div id="scroller">
-        <div id="scroller-in">
-          <h4>ABOUT PCOD</h4>
-          <h4>INTERACTIVE GAMES</h4>
-          <h4>PCOD TRACKER</h4>
-          <h4>HEALTH TIPS</h4>
-          <h4>EXERCISES</h4>
-        </div>
-        <div id="scroller-in">
-          <h4>ABOUT PCOD</h4>
-          <h4>INTERACTIVE GAMES</h4>
-          <h4>PCOD TRACKER</h4>
-          <h4>HEALTH TIPS</h4>
-          <h4>EXERCISES</h4>
-        </div>
+
+
+
+    <video autoplay loop muted src="assets/pcod_video.mp4"></video>
+    <div id="main">
+      <div id="page1" style="font-family: 'Playfair Display', serif;">
+        <h1>LEARN.ABOUT.PCOD</h1>
+        <h2>Hey there, beautiful!</h2>
+        <p>Polycystic Ovarian Disease (PCOD) affects millions of women worldwide. Get the right information, track your
+          symptoms, and take control of your health today!</p>
 
       </div>
-      <div id="about-us">
-        <img src="assets/pic1.png" alt="">
+      <div id="page2">
+        <div id="scroller">
+          <div id="scroller-in">
+            <h4>ABOUT PCOD</h4>
+            <h4>INTERACTIVE GAMES</h4>
+            <h4>PCOD TRACKER</h4>
+            <h4>HEALTH TIPS</h4>
+            <h4>EXERCISES</h4>
+          </div>
+          <div id="scroller-in">
+            <h4>ABOUT PCOD</h4>
+            <h4>INTERACTIVE GAMES</h4>
+            <h4>PCOD TRACKER</h4>
+            <h4>HEALTH TIPS</h4>
+            <h4>EXERCISES</h4>
+          </div>
 
-        <div id="about-us-in">
-          <h3>ABOUT US</h3>
-          <p>At PCOD Hub, we are dedicated to empowering women with the right knowledge and tools to manage Polycystic Ovarian Disease (PCOD) effectively. Our platform is designed to educate, support, and provide personalized resources to help women take control of their health.
-            <br><br>💜 Our Mission
-            We believe that every woman deserves access to reliable health information and a supportive community. By spreading awareness and providing the right tools, we aim to make managing PCOD easier and stress-free.
-            
-            Join us on this journey towards better health, confidence, and well-being! ✨💪
-          </p>
         </div>
-        <img src="assets/Screenshot 2024-11-10 154958.png" alt="">
-      </div>
-      <div id="cards-container">
-        <div class="card" id="card1">
-          <a href="pcod-awareness-quiz.html">
-            <div class="overlay">
-              <h4>PCOD Awareness Quiz</h4>
-              <p>Think you know about PCOD? Take Quiz and challenge yourself! 💡✨</p>
-            </div>
-          </a>
+        <div id="about-us">
+          <img src="assets/pic1.png" alt="">
+
+          <div id="about-us-in">
+            <h3>ABOUT US</h3>
+            <p>At PCOD Hub, we are dedicated to empowering women with the right knowledge and tools to manage Polycystic
+              Ovarian Disease (PCOD) effectively. Our platform is designed to educate, support, and provide personalized
+              resources to help women take control of their health.
+              <br><br>💜 Our Mission
+              We believe that every woman deserves access to reliable health information and a supportive community. By
+              spreading awareness and providing the right tools, we aim to make managing PCOD easier and stress-free.
+
+              Join us on this journey towards better health, confidence, and well-being! ✨💪
+            </p>
+          </div>
+          <img src="assets/Screenshot 2024-11-10 154958.png" alt="">
         </div>
-        <div class="card" id="card2">
-          <a href="pcod-nutrition-puzzle.html">
-            <div class="overlay">
-              <h4>PCOD Nutrition Puzzle</h4>
-              <p>Unlock the secrets to a PCOD-friendly diet with this fun game! 🥗🧩.</p>
-            </div>
-          </a>
+        <div id="cards-container">
+          <div class="card" id="card1">
+            <a href="pcod-awareness-quiz.html">
+              <div class="overlay">
+                <h4>PCOD Awareness Quiz</h4>
+                <p>Think you know about PCOD? Take Quiz and challenge yourself! 💡✨</p>
+              </div>
+            </a>
+          </div>
+          <div class="card" id="card2">
+            <a href="pcod-nutrition-puzzle.html">
+              <div class="overlay">
+                <h4>PCOD Nutrition Puzzle</h4>
+                <p>Unlock the secrets to a PCOD-friendly diet with this fun game! 🥗🧩.</p>
+              </div>
+            </a>
+          </div>
+          <div class="card" id="card3">
+            <a href="pcod-fact-or-myth.html">
+              <div class="overlay">
+                <h4>PCOD Fact or Myth?</h4>
+                <p>Test your knowledge with this fun Fact or Myth challenge and uncover the truth about PCOD! 🤔</p>
+              </div>
+            </a>
+          </div>
         </div>
-        <div class="card" id="card3">
-          <a href="pcod-fact-or-myth.html">
-            <div class="overlay">
-              <h4>PCOD Fact or Myth?</h4>
-              <p>Test your knowledge with this fun Fact or Myth challenge and uncover the truth about PCOD! 🤔</p>
-            </div>
-          </a>
-        </div>
-      </div>
-      
+
 
       </div>
       <div id="purple-div">
@@ -203,7 +207,10 @@
     </div>
     <div id="page3">
       <p id="page3-text">
-        PCOD is not a reflection of your worth or strength. It’s a reminder that your body needs compassion and care. Every step you take—whether it’s eating healthier, exercising, or simply being kind to yourself—is a step toward healing and growth. Remember, you are stronger than this challenge, and you have the power to reclaim your health and happiness.
+        PCOD is not a reflection of your worth or strength. It’s a reminder that your body needs compassion and care.
+        Every step you take—whether it’s eating healthier, exercising, or simply being kind to yourself—is a step toward
+        healing and growth. Remember, you are stronger than this challenge, and you have the power to reclaim your
+        health and happiness.
       </p>
       <img id="colon1" src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-left.svg" alt="">
       <img id="colon2" src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-right.svg" alt="">
@@ -211,13 +218,13 @@
         Learn More
       </button>
     </div>
-    
-    
+
+
     <div id="page4">
       <h1>WHAT ARE YOU WAITING FOR?</h1>
       <div class="elem">
         <a href="diet/diet.html">
-        <h2>HEALTHY RECIPES</h2>
+          <h2>HEALTHY RECIPES</h2>
 
         </a>
         <img src="assets/taylor-kiser-EvoIiaIVRzU-unsplash.jpg" alt="">
@@ -225,9 +232,9 @@
       <div class="elem">
         <a href="exercise/exercise.html">
           <h2>EXERCISES</h2>
-        <img src="assets/jared-rice-NTyBbu66_SI-unsplash.jpg" alt="">
+          <img src="assets/jared-rice-NTyBbu66_SI-unsplash.jpg" alt="">
         </a>
-        
+
       </div>
       <div class="elem">
         <a href="tracker/tracker.html">
@@ -250,38 +257,37 @@
         </a>
       </div>
 
-      <!-- Chatbot Container -->
       <section class="chat-window">
         <button class="close">X close</button>
         <div class="chat">
-            <div class="model">
-                <p>Hi, how can I help you?</p>
-            </div>
+          <div class="model">
+            <p>Hi, how can I help you?</p>
+          </div>
         </div>
         <div class="input-area">
-            <input placeholder="Ask me anything..." type="text">
-            <button>
-                <img src="login-chatbot/chatbot/send-icon.png" alt="send icon">
-            </button>
-    </section>
-  
-    <div class="chat-button">
+          <input placeholder="Ask me anything..." type="text">
+          <button>
+            <img src="login-chatbot/chatbot/send-icon.png" alt="send icon">
+          </button>
+      </section>
+
+      <div class="chat-button">
         <img src="login-chatbot/chatbot/chat-icon.png" alt="start chat">
-    </div>
-    
-    <script type="importmap">
+      </div>
+
+      <script type="importmap">
         {
             "imports": {
                 "@google/generative-ai": "https://esm.run/@google/generative-ai"
             }
         }
     </script>
-    <script type="module" src="login-chatbot/chatbot/main.js"></script>
+      <script type="module" src="login-chatbot/chatbot/main.js"></script>
 
-      
+
     </div>
     <div id="footer">
-      <img src="assets/icon.png" alt="">
+      <img src="assets/woman.png" alt="">
       <div id="f1">
         <img src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg" alt="">
       </div>
@@ -295,12 +301,17 @@
         <h3>Made by RS</h3>
 
       </div>
-      
+
     </div>
   </div>
-</div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+    integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="scripts/main.js"></script>
 </body>
+
 </html>

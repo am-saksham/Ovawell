@@ -59,48 +59,47 @@ gsap.from("#colon1", {
   x: -70, // Moves left
   opacity: 0, // Fades in
   scrollTrigger: {
-    trigger: "#colon1", // Triggered when #colon1 comes into view
-    scroller: "body", // Scroller reference
-    start: "top 75%", // Start animation when top of #colon1 hits 75% of viewport
-    end: "top 45%", // End animation when top of #colon1 hits 45% of viewport
-    scrub: 1, // Smoothens the animation progress
+    trigger: "#colon1", 
+    scroller: "body", 
+    start: "top 75%", 
+    end: "top 45%",
+    scrub: 1,
   }
 });
 
 // GSAP animation for #colon2
 gsap.from("#colon2", {
-  y: 40, // Moves down
-  x: 80, // Moves right
-  opacity: 1, // Fades in
+  y: 40, 
+  x: 80, 
+  opacity: 1, 
   scrollTrigger: {
-    trigger: "#colon2", // Triggered when #colon2 comes into view
-    scroller: "body", // Scroller reference
-    start: "top 85%", // Start animation when top of #colon2 hits 75% of viewport
-    end: "top 65%", // End animation when top of #colon2 hits 45% of viewport
-    scrub: 1, // Smoothens the animation progress
+    trigger: "#colon2",
+    scroller: "body", 
+    start: "top 85%",
+    end: "top 65%", 
+    scrub: 1, 
   }
 });
 gsap.from("#page4 h1",{
   y:50,
   scrollTrigger:{
-    trigger: "#page4 h1", // Triggered when #colon2 comes into view
-    scroller: "body", // Scroller reference
-    start: "top 85%", // Start animation when top of #colon2 hits 75% of viewport
-    end: "top 65%", // End animation when top of #colon2 hits 45% of viewport
-    scrub: 2// Smoothens the animation progress
+    trigger: "#page4 h1", 
+    scroller: "body",
+    start: "top 85%",
+    end: "top 65%",
+    scrub: 2,
   }
 })
-// Show the notification slider on page load
-// Get the notification and close button elements
+
+
 const notification = document.getElementById('login-signup-notification');
 const closeButton = document.getElementById('close-notification');
 
-// Close the notification when the close button is clicked
 closeButton.addEventListener('click', () => {
   notification.style.display = 'none';
 });
 
-// Show the notification when the page is loaded
+
 window.onload = function() {
   notification.style.display = 'flex';
 };
@@ -114,17 +113,17 @@ function sendMessage() {
   const userMessage = document.getElementById('user-message').value.trim();
   if (!userMessage) return;
 
-  // Display user message
+  
   const messagesDiv = document.getElementById('chatbot-messages');
   const userMessageElement = document.createElement('div');
   userMessageElement.classList.add('user-message');
   userMessageElement.innerHTML = `<p><strong>You:</strong> ${userMessage}</p>`;
   messagesDiv.appendChild(userMessageElement);
 
-  // Simulate AI response (You can replace this with your API call)
+
   const aiResponse = getAIResponse(userMessage);
 
-  // Display AI response
+  
   const aiMessageElement = document.createElement('div');
   aiMessageElement.classList.add('ai-message');
   aiMessageElement.innerHTML = `<p><strong>Bot:</strong> ${aiResponse}</p>`;

@@ -33,7 +33,7 @@ app.use(bodyParser.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // MongoDB Connection
-mongoose.connect("mongodb://localhost:27017/pcodTracker", {
+mongoose.connect("mongodb+srv://pcodTracker:asdFGH123%21%40%23@cluster0.7adyo.mongodb.net/pcodTracker?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

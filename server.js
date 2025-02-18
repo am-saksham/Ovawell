@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://users:asdFGH123%21%40%23@cluster0.7adyo.mongodb.net/pcodTrackerDB?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://pcodTracker:asdFGH123%21%40%23@cluster0.7adyo.mongodb.net/pcodTracker?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

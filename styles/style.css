@@ -483,13 +483,14 @@ video{
   height: 82%;
 
 }
-#f2 h3 {
+#f2 h3 a{
   font-size: 1.6vw;
   white-space: nowrap;
   text-transform: uppercase;
   color: #000;
   font-weight: 900;
   margin-bottom: 8px;
+  text-decoration: none;
 }
 
 #f3 h3 {
